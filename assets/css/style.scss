@@ -1,4 +1,78 @@
-h1{
-  color: red;
+//body{
+//  font-size:14px;
+//  margin: 0;
+//  padding:0;
+//}
+div,section,nav{
+  box-sizing: border-box;
+}
+
+ul{
+  margin:0;
+  padding:0;
+  list-style: none;
+}
+
+.nav{
+  height: 50px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  padding-left: 2rem;
+  position: absolute;
+  top:0;
+  z-index: 10;
+  .logo-group{
+    height:inherit;
+    display: inline-block;
+    a{
+      display: inline-block;
+      height:inherit;
+      img{
+        height:inherit;
+      }
+    }
+  }
+  .menu-group{
+    padding-left: 2rem;
+    flex-grow:1;
+    height:inherit;
+    display: inline-block;
+    ul{
+      height:inherit;
+      li{
+        height:inherit;
+        display: inline-block;
+        line-height: 50px;
+      }
+    }
+  }
+}
+
+.main-container{
+  perspective: 1px;
+  overflow: auto;
+  height: 100vh;
+  .section{
+    height: 100vh;
+    //background: gainsboro;
+  }
+  .section-main{
+    transform-style: preserve-3d;
+    position: relative;
+    overflow: hidden;
+      .parallax-bg{
+        background-image: url("/assets/img/main-bg.jpg");
+        background-size:cover ;
+        position: absolute;
+        width: 105%;
+        height: 100%;
+        transform: translate3D(0, 0, -1px) scale(2);
+      }
+
+    }
+  .section-second{
+    background: sandybrown;
+  }
 
 }
