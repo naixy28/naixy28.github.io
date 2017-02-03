@@ -55,4 +55,16 @@ ul {
   .main-container .section-second {
     background: sandybrown; }
 
+.loader {
+  height: 100vh;
+  width: 100vw;
+  background: whitesmoke;
+  display: block;
+  position: absolute;
+  top: 0;
+  z-index: 100;
+  opacity: 1;
+  transition: 0.3s ease;
+  pointer-events: none; }
+
 /*# sourceMappingURL=style.css.map */
