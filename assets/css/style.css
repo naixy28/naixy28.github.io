@@ -46,7 +46,7 @@ ul {
     position: relative;
     overflow: hidden; }
     .main-container .section-main .parallax-bg {
-      background-image: url("/assets/img/main-bg.jpg");
+      background-image: url("/assets/img/main-bg-small.jpg");
       background-size: cover;
       position: absolute;
       width: 105%;
@@ -65,6 +65,21 @@ ul {
   z-index: 100;
   opacity: 1;
   transition: 0.3s ease;
-  pointer-events: none; }
+  pointer-events: none;
+  overflow: hidden; }
+  .loader:before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 25%;
+    left: -25%;
+    background-color: darkolivegreen;
+    animation: loading 5s linear infinite; }
+@keyframes loading {
+  from {
+    left: -25%; }
+  to {
+    left: 125%; } }
 
 /*# sourceMappingURL=style.css.map */
