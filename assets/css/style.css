@@ -46,12 +46,11 @@ ul {
     position: relative;
     overflow: hidden; }
     .main-container .section-main .parallax-bg {
-      background-image: url("/assets/img/main-bg-small.jpg");
-      background-size: cover;
       position: absolute;
       width: 105%;
       height: 100%;
-      transform: translate3D(0, 0, -1px) scale(2); }
+      transform: translate3D(0, 0, -1px) scale(2);
+      background-image: url("data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BAAAAAAALAAAAAADAAMAAAIEBHIJBQA7"); }
   .main-container .section-second {
     background: sandybrown; }
 
