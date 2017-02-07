@@ -1,10 +1,62 @@
-div, section, nav {
+/** reset margin and padding **/
+body, h1, h2, h3, h4, h5, h6, hr, p,
+blockquote,
+dl, dt, dd, ul, ol, li,
+pre,
+form, fieldset, legend, button, input, textarea,
+th, td,
+img {
+  border: medium none;
+  margin: 0;
+  padding: 0; }
+
+/** default font **/
+body, button, input, select, textarea {
+  font: normal 100% "Helvetica Neue",Helvetica,"Microsoft YaHei","STXihei",Arial,sans-serif; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%; }
+
+em {
+  font-style: normal; }
+
+/** reset list **/
+ul, ol {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+/** reset a **/
+a {
+  text-decoration: none;
+  color: #333; }
+
+a:hover {
+  text-decoration: underline;
+  color: #F40; }
+
+/** reset img **/
+img {
+  border: 0px; }
+
+/** reset table **/
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/** border box **/
+div, section, nav, li {
   box-sizing: border-box; }
 
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none; }
+/* definition */
+*::selection {
+  background-color: #ddd; }
+
+::-webkit-scrollbar {
+  width: 7px; }
+
+::-webkit-scrollbar-thumb {
+  background-color: #bbb; }
 
 .nav {
   height: 50px;
@@ -33,7 +85,27 @@ ul {
       .nav .menu-group ul li {
         height: inherit;
         display: inline-block;
-        line-height: 50px; }
+        line-height: 50px;
+        cursor: pointer;
+        text-align: center;
+        padding: 0px 1em;
+        color: #222;
+        transition: all 0.5s ease;
+        position: relative; }
+        .nav .menu-group ul li:before {
+          transition: all 0.5s ease;
+          content: '';
+          background-color: #222;
+          display: block;
+          height: 0px;
+          width: 100%;
+          position: absolute;
+          left: 0; }
+        .nav .menu-group ul li:hover {
+          color: #888888; }
+          .nav .menu-group ul li:hover:before {
+            background-color: #888888;
+            height: 5px; }
 
 .main-container {
   perspective: 1px;
