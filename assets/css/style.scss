@@ -12,7 +12,7 @@ img{
 }
 /** default font **/
 body,button, input, select, textarea {
-  font: normal 100% "Helvetica Neue",Helvetica,"Microsoft YaHei","STXihei",Arial,sans-serif;
+  font: normal 100% 'Roboto',"Helvetica Neue",Helvetica,"Microsoft YaHei","STXihei",Arial,sans-serif;
 }
 h1, h2, h3, h4, h5, h6 { font-size: 100%; }
 em{font-style:normal;}
@@ -48,9 +48,13 @@ $fontColor : #222;
   background-color: #bbb;
 }
 
+.code{
+  font-family: 'Source Sans Pro', sans-serif;
+}
 
 .nav{
   height: 50px;
+  width: 100%;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
@@ -58,6 +62,7 @@ $fontColor : #222;
   position: absolute;
   top:0;
   z-index: 10;
+  border-bottom: 1px solid rgba(0,0,0,.1);
   .logo-group{
     height:inherit;
     display: inline-block;
@@ -76,6 +81,8 @@ $fontColor : #222;
     display: inline-block;
     ul{
       height:inherit;
+      font-family: 'Contrail One',"Microsoft YaHei",sans-serif;
+      font-size:1rem;
       li{
         height:inherit;
         display: inline-block;
@@ -84,14 +91,14 @@ $fontColor : #222;
         text-align: center;
         padding: 0px 1em;
         color: #222;
-        transition: all .5s ease ;
+        transition: all .2s ease ;
         position: relative;
         &:before{
-          transition: all .5s ease ;
+          transition: all .2s ease ;
           content:'';
           background-color: $fontColor;
           display: block;
-          height: 0px;
+          height: 0;
           width: 100%;
           position: absolute;
           left: 0;
@@ -129,7 +136,9 @@ $fontColor : #222;
         position: absolute;
         width: 105%;
         height: 100%;
-        transform: translate3D(0, 0, -1px) scale(2);
+        transform: translate3D(0, 0, -1px) scale(2.5);
+        transform-origin: 50% 50%;
+        //transition: transform-origin .5s ease;
         background-image: url("data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BAAAAAAALAAAAAADAAMAAAIEBHIJBQA7");
       }
 
