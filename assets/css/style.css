@@ -130,7 +130,6 @@ div, section, nav, li {
       height: 100%;
       transform: translate3D(0, 0, -1px) scale(2.5);
       transform-origin: 50% 50%;
-      transition: transform-origin 2s ease-in-out;
       background-image: url("data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BAAAAAAALAAAAAADAAMAAAIEBHIJBQA7"); }
   .main-container .section-second {
     background: sandybrown; }
