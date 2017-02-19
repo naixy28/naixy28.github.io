@@ -1,7 +1,10 @@
 (function() {
     this.initCurrentSection = function(){
         /*onload transition*/
-        initTransition('.article-list');
+        initTransition('.article-container');
+        /*init highlight.js*/
+        document.querySelectorAll('pre code').forEach(function(i){hljs.highlightBlock(i);})
+
     }
 
     function initTransition(sel){

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Article</title>
+    <link rel="stylesheet" href="/assets/css/normalize.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/github-markdown.css">
+    <link rel="icon" href="/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Contrail+One|Lobster|Roboto|Source+Sans+Pro" rel="stylesheet">
+    <!--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">-->
+    <link rel="stylesheet" href="/assets/css/paraiso-dark.css">
+
+
+    <script src="/assets/components/jquery.min.js"></script>
+    <script src="/assets/components/particles.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+    <script src="/assets/js/main.js" defer></script>
+</head>
+<body>
+<div class="loader"></div>
+<nav class="nav">
+    <div class="logo-group">
+        <a href="#">
+            <img src="/assets/img/logo.jpg" alt="">
+        </a>
+    </div>
+    <div class="menu-group">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/notes">Tech Notes</a></li>
+            <li><a href="/lan">Language Study</a></li>
+            <li><a href="/playground">Playground</a></li>
+        </ul>
+    </div>
+
+</nav>
+<div class="main-container">
+    <section class="section section-markdown">
+        <div class="article-container">
+            <div class="markdown-body">{{content}}</div>
+        </div>
+    </section>
+    <script src="/assets/js/markdown-section.js" defer></script>
+
+</div>
+
+</body>
+</html>
