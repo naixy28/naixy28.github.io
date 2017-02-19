@@ -9,6 +9,10 @@
     <link rel="icon" href="/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Contrail+One|Lobster|Roboto|Source+Sans+Pro" rel="stylesheet">
     <!--<link href="http://fonts.useso.com/css?family=Contrail+One|Lobster|Roboto|Source+Sans+Pro" rel="stylesheet">-->
+
+    <script src="/assets/components/jquery.min.js"></script>
+    <script src="/assets/components/particles.min.js"></script>
+    <script src="/assets/js/main.js" defer></script>
 </head>
 <body>
     <div class="loader"></div>
@@ -20,28 +24,23 @@
         </div>
         <div class="menu-group">
             <ul>
-                <li>Home</li>
-                <li>Tech Notes</li>
-                <li>Language Study</li>
-                <li>Playground</li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/notes">Tech Notes</a></li>
+                <li><a href="/lan">Language Study</a></li>
+                <li><a href="/playground">Playground</a></li>
             </ul>
         </div>
 
     </nav>
     <div class="main-container">
-        <section class="section section-main">
-            <div class="parallax-bg" id="particles-js">
-            </div>
-        </section>
+        {{content}}
+
         <!--<section class="section section-second"></section>-->
     </div>
 
 
 
 
-    <!--{{content}}-->
-    <script src="/assets/components/jquery.min.js"></script>
-    <script src="/assets/components/particles.min.js"></script>
-    <script src="/assets/js/main.js" defer></script>
+
 </body>
 </html>

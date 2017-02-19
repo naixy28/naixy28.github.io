@@ -61,8 +61,13 @@ div, section, nav, li {
 .code {
   font-family: 'Source Sans Pro', sans-serif; }
 
+@media screen and (min-width: 481px) {
+  .nav {
+    height: 50px; } }
+@media screen and (max-width: 480px) {
+  .nav {
+    height: auto; } }
 .nav {
-  height: 50px;
   width: 100%;
   display: flex;
   flex-flow: row nowrap;
@@ -71,9 +76,10 @@ div, section, nav, li {
   position: absolute;
   top: 0;
   z-index: 10;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.2); }
   .nav .logo-group {
-    height: inherit;
+    height: 50px;
     display: inline-block; }
     .nav .logo-group a {
       display: inline-block;
@@ -108,11 +114,16 @@ div, section, nav, li {
           width: 100%;
           position: absolute;
           left: 0; }
-        .nav .menu-group ul li:hover {
+        .nav .menu-group ul li a {
+          transition: all .2s ease;
+          display: inline-block; }
+          .nav .menu-group ul li a:hover {
+            text-decoration: none; }
+        .nav .menu-group ul li:hover > a {
           color: #888888; }
-          .nav .menu-group ul li:hover:before {
-            background-color: #888888;
-            height: 5px; }
+        .nav .menu-group ul li:hover:before {
+          background-color: #888888;
+          height: 5px; }
 
 .main-container {
   perspective: 1px;
@@ -131,8 +142,24 @@ div, section, nav, li {
       transform: translate3D(0, 0, -1px) scale(2.5);
       transform-origin: 50% 50%;
       background-image: url("data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BAAAAAAALAAAAAADAAMAAAIEBHIJBQA7"); }
-  .main-container .section-second {
-    background: sandybrown; }
+  .main-container .section-article-list {
+    overflow: auto;
+    position: relative;
+    background-image: url("data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BAAAAAAALAAAAAADAAMAAAIEBHIJBQA7"); }
+    .main-container .section-article-list .article-list {
+      transition: all .5s ease;
+      transform: translateY(30px);
+      opacity: .2;
+      background: #f3f3f3;
+      height: 1000px;
+      width: 70%;
+      margin: 80px auto 50px auto;
+      box-shadow: inset -1px 0 #fff, 2px 8px 15px 0px rgba(0, 0, 0, 0.1);
+      border-radius: 4px; }
+  .main-container .section-lan {
+    background: steelblue; }
+  .main-container .section-playground {
+    background: gold; }
 
 .loader {
   height: 100vh;
