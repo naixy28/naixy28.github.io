@@ -162,23 +162,83 @@ $fontColor : #222;
         //transition: transform-origin 2s ease-in-out;
         background-image: url("data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BAAAAAAALAAAAAADAAMAAAIEBHIJBQA7");
       }
+      h1.typing-header{
+        position: absolute;
+        top: 30%;
+        left: 30%;
+        font-family: 'Roboto Mono','Microsoft Yahei', monospace;
+        font-size: 1em;
+        width:0;
+        white-space: nowrap;
+        border-right: 1rem solid;
+        overflow: hidden;
+        animation: typing 10s steps(11,end),
+        blink .5s step-end infinite alternate;
+      }
+
+    @keyframes typing {
+      from {width: 0}
+    }
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
 
     }
   .section-article-list{
     overflow: auto;
     position: relative;
     background-image: url("data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BAAAAAAALAAAAAADAAMAAAIEBHIJBQA7");
+    //background-color: crimson;
+    background-blend-mode: hard-light;
 
     .article-list{
       transition: all .5s ease;
       transform: translateY(30px);
       opacity: .2;
       background: #f3f3f3;
-      height:1000px;
+      //height:1000px;
       width: 70%;
       margin: 80px auto 50px auto;
-      box-shadow: inset -1px 0 #fff, 2px 8px 15px 0px rgba(0,0,0,.1);
-      border-radius: 4px;
+      //box-shadow: inset -1px 0 #fff, 2px 8px 15px 0px rgba(0,0,0,.1);
+      //border-radius: 4px;
+      //padding: 10px 30px;
+
+      ul{
+        li{
+          transition: all .5s ease;
+          height: 120px;
+          display: flex;
+          flex-flow: column nowrap;
+          justify-content: space-around;
+          border-left: .3em solid transparent;
+          //padding: 0 5px;
+          &:hover{
+            background: white;
+          }
+          h2{
+            font-size: 1.2rem;
+            padding: 0 30px;
+            a:hover{
+              text-decoration: none;
+              color: #8d8687;
+            }
+          }
+          .article-detail-group{
+            padding: 0 30px;
+
+            display: flex;
+            justify-content: flex-start;
+            font-size: .8rem;
+            color: #8a8a8a;
+            .pub-date{
+              margin-right: 20px;
+            }
+            .tags{
+
+            }
+          }
+        }
+      }
     }
 
   }
