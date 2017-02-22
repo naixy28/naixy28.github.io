@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Cheat Sheets
-excerpt: Cheat Sheets
+excerpt: Cheat Sheets （多图杀猫！！）
 category: tech
 tags: javascript css
 ---
