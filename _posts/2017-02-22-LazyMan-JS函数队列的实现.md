@@ -1,0 +1,138 @@
+---
+2	layout: article
+3	title: LazyMan
+4	excerpt: LazyMan以及JS函数队列的实现
+5	category: tech
+6	tags: javascript
+7	---
+
+# JS函数队列的实现
+
+近日在网上看到一道题，在看了一些实现方法后自己又写了一遍，本质上是函数队列的实现
+
+```javascript
+//原题
+LazyMan(“Hank”)
+//Hi! This is Hank!
+
+LazyMan(“Hank”).sleep(10).eat(“dinner”)
+// Hi! This is Hank!
+// 等待10秒..
+// Wake up after 10
+// Eat dinner~
+
+LazyMan(“Hank”).eat(“dinner”).eat(“supper”)
+// Hi This is Hank!
+// Eat dinner~
+// Eat supper~
+
+LazyMan(“Hank”).sleepFirst(5).eat(“supper”)
+// 等待5秒
+// Wake up after 5
+// Hi This is Hank!
+// Eat supper
+```
+
+
+
+## 思路
+- 创建一个LazyMan类，实例内维护一个tasks数组
+- 通过一个next方法执行数组头部的函数并shift
+- 每个行为的具体参数用过闭包保存
+- 为了实现链式调用，需要返回对象本身
+- 可以看出函数列表真正的执行需要在所有步骤都推入tasks之后，因此用于启动的第一次next执行需要用异步放到event loop内
+
+## 各部分的实现
+代码参考了[LazyMan代码实现](https://segmentfault.com/a/1190000008195180)，修正了一些闭包错误并补全了剩余方法
+
+### _LazyMan类
+
+```javascript
+function _LazyMan(name){
+  this.tasks = [];
+  var that = this; //对象本身在运行也通过闭包保存，因此用一个变量保留引用
+
+  var fn = (function(n){
+    return function(){
+        console.log('Hi! This is '+ n + '!');
+        that.next()
+    }
+  })(name);
+
+  this.tasks.push(fn);
+
+  setTimeout(function() { //启动函数列表的执行，此时列表内已经有完整的task
+    that.next();
+  }, 0);
+}
+```
+
+### next方法
+用&&做短路运算，作为运行结束的判断
+
+```javascript
+_LazyMan.prototype.next = function(){
+  var fn = this.tasks.shift();
+  fn&&fn();
+}
+```
+
+### 包装_LazyMan类
+主要目的是为了让代码运行的方式和题目中一样，隐藏`new`运算符
+
+```javascript
+function LazyMan(name){
+  return new _LazyMan(name)
+}
+```
+
+### 行为方法的实现
+sleep和sleepFirst的区别在于，前者通过push加入tasks列表尾部，后者使用unshift插入到列表头部成为第一个执行的方法
+
+```javascript
+_LazyMan.prototype.sleep = function(time){
+  var that = this;
+  var fn = (function(t){
+    return function(){
+      setTimeout(function(){
+        console.log('Wake up after '+ t + 's');
+        that.next(); //执行下一步
+      },t*1000)
+    }
+  })(time);
+    that.tasks.push(fn);
+  return this;
+}
+
+_LazyMan.prototype.sleepFirst = function(times){
+  var that = this;
+  var fn = (function(t){
+    return function(){
+     setTimeout(function(){
+        console.log('Wake up after '+ t + 's');
+        that.next(); //执行下一步
+      },t*1000)
+    }
+  })(times);
+
+  that.tasks.unshift(fn);
+  return this;
+
+}
+
+_LazyMan.prototype.eat = function(thing){
+  var that = this;
+  var fn = (function(t){
+    return function(){
+      console.log('Eat ' + t);
+      that.next(); //执行下一步
+    }
+  })(thing);
+  that.tasks.push(fn);
+  return this;
+}
+```
+
+## 一些想法
+- 异步的部分或许可以用Promise来实现
+- 用上es6的特性
