@@ -33,7 +33,7 @@ function myDebounce(func,wait){
 
 ## 测试配套
 
-[在线实例](),还没传。。
+[实例](https://jsfiddle.net/naixy28/agtuv1an/)
 
 ```javascript
 var log = console.log.bind(console)
