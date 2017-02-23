@@ -192,7 +192,7 @@ $fontColor : #222;
     background-blend-mode: hard-light;
 
     .article-list{
-      transition: all .5s ease;
+      transition: all .2s ease;
       transform: translateY(30px);
       opacity: .2;
       background: #f3f3f3;
@@ -254,14 +254,14 @@ $fontColor : #222;
     background-image: url("data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BAAAAAAALAAAAAADAAMAAAIEBHIJBQA7");
     .article-container{
       padding: 45px;
-      transition: all .5s ease;
+      transition: all .2s ease;
       transform: translateY(30px);
       opacity: .2;
       background: #f3f3f3;
       width: 70%;
       margin: 80px auto 50px auto;
-      box-shadow: inset -1px 0 #fff, 2px 8px 15px 0px rgba(0,0,0,.1);
-      border-radius: 4px;
+      //box-shadow: inset -1px 0 #fff, 2px 8px 15px 0px rgba(0,0,0,.1);
+      //border-radius: 4px;
 
       @media screen and (max-width: 800px){
         width: 90%;
