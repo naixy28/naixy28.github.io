@@ -44,3 +44,53 @@ function quickSort(arr,low,high){
   }
 }
 ```
+---
+
+## 深拷贝对象的一种实现
+一般的浅拷贝只会复制对象的引用，如`Obejct.assign()`
+
+### 思路
+- 检查每个元素的类型区分处理
+- 使用深度遍历
+- 使用`for in`遍历元素
+
+### 代码
+```javascript
+function deepCopy(obj){
+  //处理基础类型
+  if(typeof obj !== 'object'){
+    return obj;
+  }
+
+  //处理引用类型
+  var newObj;
+  if( obj instanceof Array ){
+    newObj = [];
+  }else{
+    newObj = {};
+  }
+
+  //使用for in遍历
+  for(key in obj){
+    if(typeof obj[key] !== 'object'){
+      newObj[key] = obj[key]
+    }else{
+      newObj[key] = deepCopy(obj[key])
+    }
+  }
+  return newObj;
+}
+```
+
+
+### 想法
+- Function和其他类型的复制
+  - Date类型，可以`geiTime()`转数字
+  - Function类型怎么复制。。
+- for in的缺陷
+  - 顺序问题
+  - 各浏览器有实现情况有差异
+  - 用`for of`
+- 大型对象复制的执行栈溢出
+  - 用广度遍历
+  - `JSON.stringify()`
