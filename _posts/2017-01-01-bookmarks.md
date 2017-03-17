@@ -18,6 +18,7 @@ tags: javascript css
 - [巧用 JAVASCRIPT 中的位运算](https://github.com/YIXUNFE/blog/issues/63)
 - [defer和async的区别](https://segmentfault.com/q/1010000000640869)
 - [Promise 的链式调用与中止](https://segmentfault.com/a/1190000007598894)
+- [Ajax知识体系大梳理](https://segmentfault.com/a/1190000008697448)
 
 
 - [CSS装饰加载失败的图片](https://segmentfault.com/a/1190000004634661)
