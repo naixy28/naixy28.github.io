@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          JS Part 3 - Naixy28的博客 | Naixy28&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="https://naixy28.github.io/2015/08/02/2015-08-02-js-c3/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Naixy28&#39;s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="https://naixy28.github.io/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#javascript" title="javascript">javascript</a>
+                        
+                    </div>
+                    <h1>JS Part 3</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by naixy28 on
+                        2015-08-02
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h1 id="javascript高级语言程序设计笔记-з」∠"><a href="#javascript高级语言程序设计笔记-з」∠" class="headerlink" title="javascript高级语言程序设计笔记_(:з」∠)_"></a>javascript高级语言程序设计笔记_(:з」∠)_</h1><h2 id="第3章"><a href="#第3章" class="headerlink" title="第3章"></a>第3章</h2><hr>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>基本数据类型5种</p>
+<ul>
+<li>undefined</li>
+<li>boolean</li>
+<li>null</li>
+<li>number</li>
+<li>string<br>复杂数据类型</li>
+<li>object<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//null代表一个空的对象 而undefined是未定义</span></div><div class="line"><span class="comment">//建议使用null初始化新的对象，对于变量不必特意初始化为undefined</span></div><div class="line"><span class="keyword">var</span> a = <span class="literal">null</span>;</div><div class="line"><span class="keyword">var</span> b;</div><div class="line"><span class="keyword">typeof</span> b; <span class="comment">//'undefined'</span></div><div class="line"><span class="keyword">typeof</span> a; <span class="comment">//'object'</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Boolean"><a href="#Boolean" class="headerlink" title="Boolean"></a>Boolean</h3><p><code>Boolean()</code>对应转换表</p>
+<table><br><tr><br><td>Boolean</td><br><td>true</td><br><td>false</td><br></tr><br><tr><br><td>Stirng</td><br><td>非空字符串</td><br><td>“”空串</td><br></tr><br><tr><br><td>Number</td><br><td>非零</td><br><td>0和NaN</td><br></tr><br><tr><br><td>Object</td><br><td>任何对象</td><br><td>null</td><br></tr><br><tr><br><td>undefined</td><br><td>不适用</td><br><td>undefined</td><br></tr><br></table>
+
+<h3 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h3><ul>
+<li><p>进制  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num1 = <span class="number">5</span> <span class="comment">//十进制</span></div><div class="line"><span class="keyword">var</span> num2 = <span class="number">070</span> <span class="comment">//八进制，严格模式下不支持，零开头</span></div><div class="line"><span class="keyword">var</span> num3 = <span class="number">0xA</span> <span class="comment">//十六进制</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><code>isNaN()</code>  </p>
+<ul>
+<li>NaN与任何值不相等</li>
+<li>判断isNaN时，先尝试转为数值，Object先后尝试<code>valueOf()</code>和<code>toString()</code></li>
+</ul>
+</li>
+<li><p>数值转换<br>有<code>Number()</code>,<code>parseInt()</code>,<code>parseFloat()</code>三个函数，推荐后两种  </p>
+<ul>
+<li><code>parseInt()</code>与<code>parseFloat()</code>都是从第一位开始解析适合转换成数字的串直到不能解析</li>
+<li><code>parseInt()</code>可以用第二个参数确定字符串的进制，建议使用  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num = <span class="built_in">parseInt</span>(<span class="string">'10'</span>,<span class="number">2</span>); <span class="comment">//2</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><code>Number()</code>与<code>parseInt()</code>和<code>parseFloat()</code>的主要区别</p>
+<ul>
+<li>支持将<code>Boolean</code>类型转换为<code>0</code>或<code>1</code>，而不是<code>NaN</code></li>
+<li>支持将<code>null</code>转换成<code>0</code>，而不是<code>NaN</code></li>
+<li>支持将<strong>空串</strong>转换成<code>0</code>，而不是<code>NaN</code>    </li>
+</ul>
+</li>
+</ul>
+<p>所以<code>parse</code>系列更类似于只是解析字符串前缀是否包含数字，而<code>Number</code>会执行类型转换尽量将变量转换成数字</p>
+<h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><ul>
+<li><code>string.length</code>属性返回的长度包含了转义字符的长度，可能大于目测</li>
+<li><p><code>toString()</code>方法可带一个参数输出各种进制表示的字符串  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num = <span class="number">10</span>;</div><div class="line">num.toString(<span class="number">16</span>); <span class="comment">//"a"</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><code>null</code>与<code>undeifined</code>不支持<code>toString()</code><br>因此在不确定的情况下，可以使用<code>String(value)</code>函数转换，区别在<code>toString()</code>方法基础上增加了对这两种类型的支持  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> value = <span class="literal">null</span>;</div><div class="line"><span class="keyword">var</span> value2;</div><div class="line"><span class="built_in">String</span>(value); <span class="comment">//'null'</span></div><div class="line"><span class="built_in">String</span>(value2); <span class="comment">//'undefined'</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h3><p>每个Object都具有这些方法</p>
+<ul>
+<li><code>constructor()</code></li>
+<li><code>hasOwnProperty(propertyName)</code> 必须传入字符串形式</li>
+<li><code>isPrototypeOf(object)</code></li>
+<li><code>propertyEnumerable(propertyName)</code> 必须传入字符串形式</li>
+<li><code>toString()</code></li>
+<li><code>valueOf()</code> 通常与<code>toString()</code>返回的相同，但类型不一定是<code>string</code></li>
+</ul>
+<hr>
+<h3 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h3><p>在将操作符应用于<code>Object</code>时，往往会调用对象的<code>valueOf()</code>或<code>toString()</code>方法</p>
+<h4 id="一元操作符"><a href="#一元操作符" class="headerlink" title="一元操作符"></a>一元操作符</h4><ul>
+<li><code>+</code>操作符可用于向<code>number</code>类型的转换，等同于<code>Number()</code></li>
+<li>有符号位移<code>&gt;&gt;</code>与无符号位移<code>&gt;&gt;&gt;</code>的差别在于对负数的操作结果不同，有符号位移会将负数的二进制补码看作是正数，共通点是所有移入的位补零</li>
+<li><p>逻辑与<code>&amp;&amp;</code>操作适用于各种数据类型而不只是<code>boolean</code>型，其操作为<strong>短路</strong>，不一定返回<code>boolean</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">object1 &amp;&amp; object2; <span class="comment">//object2</span></div><div class="line"><span class="literal">true</span> &amp;&amp; object; <span class="comment">//object</span></div><div class="line"><span class="literal">false</span> &amp;&amp; sth; <span class="comment">//false</span></div><div class="line"><span class="literal">null</span> &amp;&amp; sth; <span class="comment">//null</span></div><div class="line"><span class="literal">undefined</span> &amp;&amp; sth; <span class="comment">//undefined</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>逻辑或<code>||</code>与逻辑与类似，常用<code>var result = preferred || backup;</code></p>
+<h4 id="二元操作符"><a href="#二元操作符" class="headerlink" title="二元操作符"></a>二元操作符</h4></li>
+<li>使用<code>==</code>或<code>!=</code>会执行类型转换，且存在一些特殊情况如<code>null == undeifined //true</code></li>
+<li>使用全等<code>===</code>或全不等<code>!==</code>不会转换类型<br>####条件操作符</li>
+<li>循环内部定义的变量可以在循环外部访问，因为js中不存在块级作用域</li>
+<li><code>for-in</code>语句用于枚举对象的属性，顺序不可预测</li>
+<li><p><code>label</code>与<code>break</code>和<code>continue</code>联用，用于返回到特定的位置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num = <span class="number">0</span>;</div><div class="line">outermost:</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span> ;i&lt;<span class="number">10</span> ;i++)&#123;</div><div class="line">	<span class="keyword">for</span>(something)&#123;</div><div class="line">		<span class="keyword">for</span>(something)&#123;</div><div class="line">			<span class="keyword">break</span> outermost; <span class="comment">//跳出到最外层</span></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>with</code>语句用于将代码的作用域设置到对象中，不建议使用</p>
+</li>
+<li><code>switch</code>的迷之用法，以及<code>switch</code>中使用的比较都是全等<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//比较了true与case中的值，</span></div><div class="line"><span class="keyword">var</span> num = <span class="number">25</span>;</div><div class="line"><span class="keyword">switch</span>(<span class="literal">true</span>)&#123;</div><div class="line">	<span class="keyword">case</span> num&lt;<span class="number">0</span>:</div><div class="line">	...</div><div class="line">	break;</div><div class="line">	<span class="keyword">case</span> num&lt;<span class="number">10</span>:</div><div class="line">	...</div><div class="line">	break;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><ul>
+<li><code>arguments</code>对象<ul>
+<li>可以使用方括号语法访问</li>
+<li><code>arguments.length</code>获取参数的数量，长度与<strong>传入的参数</strong>数量有关，与命名参数的数量无关</li>
+<li><code>arguments</code>会<strong>单向</strong>影响对应的命名参数，两者拥有独立的内存空间</li>
+</ul>
+</li>
+<li>没有重载<br>同名函数会被后来者覆盖</li>
+</ul>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2015/08/03/2015-08-03-js-c4/" data-toggle="tooltip" data-placement="top" title="JS Part 4">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2015/08/01/2015-08-01-js-c2/" data-toggle="tooltip" data-placement="top" title="JS Part 2">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#javascript" title="javascript">javascript</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "hexo-theme-huxblog";
+    var disqus_identifier = "https://naixy28.github.io/2015/08/02/2015-08-02-js-c3/";
+    var disqus_url = "https://naixy28.github.io/2015/08/02/2015-08-02-js-c3/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/yuan-yang-ryan">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/naixy28">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/ryan-yuan-68813a103">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Naixy28&#39;s Blog 2017 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://naixy28.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="https://naixy28.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

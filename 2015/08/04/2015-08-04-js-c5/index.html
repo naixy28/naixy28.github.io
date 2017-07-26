@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          JS Part 5 - Naixy28的博客 | Naixy28&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="https://naixy28.github.io/2015/08/04/2015-08-04-js-c5/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Naixy28&#39;s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="https://naixy28.github.io/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#javascript" title="javascript">javascript</a>
+                        
+                    </div>
+                    <h1>JS Part 5</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by naixy28 on
+                        2015-08-04
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h1 id="javascript高级语言程序设计笔记-з」∠"><a href="#javascript高级语言程序设计笔记-з」∠" class="headerlink" title="javascript高级语言程序设计笔记_(:з」∠)_"></a>javascript高级语言程序设计笔记_(:з」∠)_</h1><h2 id="第5章"><a href="#第5章" class="headerlink" title="第5章"></a>第5章</h2><hr>
+<h3 id="Object类型"><a href="#Object类型" class="headerlink" title="Object类型"></a><code>Object</code>类型</h3><p>创建<code>Object</code>实例的两种方式</p>
+<ul>
+<li><p><code>new</code>操作符后跟<code>Object</code>构造函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">person.name = <span class="string">'aaa'</span>;</div><div class="line">person.age = <span class="number">29</span>;</div></pre></td></tr></table></figure>
+</li>
+<li><p>对象字面量表示法  <strong>不会调用构造函数</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person = &#123;</div><div class="line">  <span class="attr">name</span>:<span class="string">'aaa'</span>,</div><div class="line">  <span class="attr">age</span>:<span class="string">'20'</span>,</div><div class="line">  <span class="number">5</span>:<span class="literal">true</span></div><div class="line">&#125;;</div><div class="line"><span class="comment">//person.name  person['name']</span></div><div class="line"><span class="comment">//person.age  person['age']</span></div><div class="line"><span class="comment">//person[5]</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Array类型"><a href="#Array类型" class="headerlink" title="Array类型"></a><code>Array</code>类型</h3><ul>
+<li><p>通过length属性增加项 <strong>length</strong>属性是动态变化的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> colors = [ <span class="string">'red'</span> , <span class="string">'blue'</span> , <span class="string">'yellow'</span> ];</div><div class="line">colors[colors.length] = <span class="string">'black'</span> ; <span class="comment">//末尾增加了颜色</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><code>array</code>的长度由插入过的最大<code>index</code>决定，空出来的默认<code>undefined</code></p>
+</li>
+<li><p>检测数组不要使用instanceof操作符，假如存在多个全局执行环境，则可能存在多个版本的Array构造函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>( <span class="built_in">Array</span>.isArray(value) )&#123;</div><div class="line">  <span class="comment">//使用这个方法</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>toLocaleString()</code>,<code>toString()</code><br>调用每个元素的相应的方法，然后用逗号连接形成字符串</p>
+</li>
+<li><code>valueOf()</code><br>返回的还是数组</li>
+<li><p>拼接<code>join()</code>   </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">colors.join(<span class="string">','</span>) <span class="comment">//用','连接各个数组中的值toString后的结果</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>栈方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">colors.push(<span class="string">'a'</span>,<span class="string">'b'</span>) <span class="comment">//接受任意数量参数，逐个添加到尾部</span></div><div class="line">colors.pop() <span class="comment">//移除最后一项</span></div><div class="line"><span class="comment">//另有shift(),unshift()方法，对头部进行相同的操作，可实现队列</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>排序方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> values = [<span class="number">0</span> , <span class="number">1</span> , <span class="number">5</span> , <span class="number">10</span> , <span class="number">15</span>];</div><div class="line">values.sort(); <span class="comment">// 0,1,10,15,5</span></div><div class="line"><span class="comment">//sort()方法比较的是toString后的字符串，因此通常要接受一个函数修改sort方法</span></div><div class="line"><span class="comment">//如果第一个参数应位于第二个之前则发挥负数，反之正数，相等返回0</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">compare</span>(<span class="params">x,y</span>)</span>&#123;</div><div class="line">  <span class="keyword">if</span>(x&lt;y) <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">  <span class="keyword">if</span>(x&gt;y) <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line">values.sort(compare); <span class="comment">// 0,1,5,10,15</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><code>concat()</code>连接数组，<strong>不修改原数组</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arr = arr1.concat(arr2,arr3,item1,item2); <span class="comment">// 可传入多个数组非数组，全都提取出元素追加到原数组的副本后</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><code>slice()</code>方法，基于当前数组创建新数组，可接受一到两个参数，分别为起始位置和结束位置的后一个位置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> colors = [<span class="string">'red'</span>,<span class="string">'green'</span>,<span class="string">'blue'</span>,<span class="string">'yellow'</span>,<span class="string">'purple'</span>];</div><div class="line"><span class="keyword">var</span> colors2 = colors.slice(<span class="number">1</span>); <span class="comment">//green,blue,yellow,purple</span></div><div class="line"><span class="keyword">var</span> colors3 = colors.slice(<span class="number">1</span>,<span class="number">4</span>); <span class="comment">//green,blue,yellow</span></div><div class="line"><span class="comment">//slice()方法支持负数</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><code>splice()</code>方法，三部分参数：第一个参数：要删除的项的起始位置；第二个参数：要删除的项数；第三个参数开始：要在起始位置插入的项</p>
+</li>
+</ul>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var colors = [<span class="string">'red'</span>,<span class="string">'green'</span>,<span class="string">'blue'</span>];</div><div class="line">var removed = colors.splice<span class="comment">(0,1)</span>; <span class="comment">//删除第0项</span></div><div class="line">alert<span class="comment">(removed)</span>; <span class="comment">//red</span></div><div class="line">alert<span class="comment">(colors)</span>; <span class="comment">//green,blue</span></div><div class="line"></div><div class="line">removed = colors.splice<span class="comment">(1,0,'yellow','orange')</span>; <span class="comment">//从位置1开始插入项，不删除</span></div><div class="line">alert<span class="comment">(colors)</span>; <span class="comment">//green,yellow,orange,blue</span></div><div class="line">alert<span class="comment">(removed)</span>; <span class="comment">//空数组</span></div><div class="line"></div><div class="line">removed = colors.splice<span class="comment">(1,1,'red','purple')</span>; <span class="comment">//从位置1删除一项，再插入两项</span></div><div class="line">alert<span class="comment">(colors)</span>; <span class="comment">//green,red,purple,orange,blue</span></div><div class="line">alert<span class="comment">(removed)</span>; <span class="comment">//yellow</span></div></pre></td></tr></table></figure>
+<ul>
+<li><p>位置方法<code>indexOf()</code>与<code>lastIndexOf()</code>，接受两个参数，第一个为查找的项，第二个（可选）为起始的位置，两个函数方向相反，找不到则返回<code>-1</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> numbers = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>];</div><div class="line">numbers.indexOf(<span class="number">4</span>); <span class="comment">//3;</span></div><div class="line">numbers.indexOf(<span class="number">4</span>,<span class="number">4</span>); <span class="comment">//5</span></div><div class="line">numbers.lastIndexOf(<span class="number">4</span>); <span class="comment">//5</span></div><div class="line">numbers.lastIndexOf(<span class="number">4</span>,<span class="number">4</span>); <span class="comment">//3</span></div><div class="line">numbers.indexOf(<span class="number">6</span>); <span class="comment">//-1</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>迭代方法</p>
+<ol>
+<li><code>every()</code>，对每一项运行给定函数，都为<code>true</code>则结果为<code>true</code>，类似与运算</li>
+<li><code>some()</code>，类似或运算</li>
+<li><code>filter()</code>，返回结果为<code>true</code>组成的数组</li>
+<li><code>forEach()</code>，无返回值，遍历</li>
+<li><code>map()</code>，对每项执行给定函数，返回结果组成的数组</li>
+</ol>
+</li>
+</ul>
+<p><strong>回调函数的参数</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>(<span class="params">item,index,array</span>)</span>&#123;&#125;</div></pre></td></tr></table></figure></p>
+<ul>
+<li>缩小方法<ol>
+<li><code>reduce()</code>，迭代前两项，返回一个结果，取其与下一个项继续迭代,缩小规模到1为止</li>
+<li><code>reduceRight()</code>，反向</li>
+</ol>
+</li>
+</ul>
+<p><strong>回调函数的参数</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>(<span class="params">prev,cur,index,array</span>)</span>&#123;&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="Date类型"><a href="#Date类型" class="headerlink" title="Date类型"></a><code>Date</code>类型</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>(); <span class="comment">//获取现在时间</span></div></pre></td></tr></table></figure>
+<ul>
+<li>创建指定的时间,<code>Date.parse()</code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> someDate = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="built_in">Date</span>.parse(<span class="string">'May 25,2004'</span>)); </div><div class="line"><span class="comment">//或</span></div><div class="line"><span class="keyword">var</span> someDate = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'May 25,2004'</span>);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><code>Date.parse()</code>接受的日期格式</p>
+<ul>
+<li>6/13/2004</li>
+<li>May 12,2005</li>
+<li>Tue May 25 2004 00:00:00 GMT-0700</li>
+<li>2004-05-25T00:00:00<ul>
+<li>创建指定的时间,<code>Date.UTC()</code>，<strong>月份从0开始</strong>，参数中年月必须<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> y2k = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="built_in">Date</span>.UTC(<span class="number">2000</span>,<span class="number">0</span>)); <span class="comment">//GMT时间2000年1月0时</span></div><div class="line"><span class="keyword">var</span> allFives = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="built_in">Date</span>.UTC(<span class="number">2005</span> , <span class="number">4</span> ,<span class="number">5</span> ,<span class="number">17</span> ,<span class="number">55</span> ,<span class="number">55</span>)); <span class="comment">//GMT时间2005年5月5日下午5点55分55秒</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="RegExp类型"><a href="#RegExp类型" class="headerlink" title="RegExp类型"></a><code>RegExp</code>类型</h3><ul>
+<li>三种模式<ol>
+<li>g：全局模式，不会在匹配到第一次之后停止匹配</li>
+<li>i：不区分大小写</li>
+<li>m：多行模式，到一行末尾后继续查找</li>
+</ol>
+</li>
+<li><p>定义正则表达式的两种方法</p>
+<ol>
+<li><p>字面量形式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> pattern  = <span class="regexp">/[bc]at/i</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>构造函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var pattern = new RegExp(&apos;[bc]at&apos;,&apos;i&apos;)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>使用构造函数时有时会需要<strong>双重转义</strong>，将字符串转义成字面量形式<br>字面量形式<strong>始终共享同一个RegExp实例</strong>，构造函数形式每次<code>new</code>都会新建实例</p>
+</li>
+<li>实例属性<table><br><tr><th>属性名</th><th>含义</th></tr><br><tr><td>global</td><td>布尔类型，是否设置了g标志</td></tr><br><tr><td>ignoreCase</td><td>同上，i标志</td></tr><br><tr><td>multiline</td><td>同上，m标志</td></tr><br><tr><td>lasrIndex</td><td>开始搜索下一个匹配项的起始位置</td></tr><br><tr><td>source</td><td>按照字面量形式输出正则的字符串</td></tr><br></table></li>
+<li><p><code>exec()</code>方法  </p>
+<ul>
+<li>专门为捕获组设计，返回<strong>包含第一个匹配项的数组或null</strong>，包含额外的index和input属性，分别表示匹配项的位置和被匹配的字符串  </li>
+<li>数组的第一项是与整个模式匹配的字符串，其他项是与捕获组匹配的项</li>
+<li>设置了<code>g</code>模式后，<strong>==多次调用exec()会</strong>继续查找新匹配项**<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> text = <span class="string">"cat,bat,sat,fat"</span>;</div><div class="line"><span class="keyword">var</span> pattern = <span class="regexp">/.at/g</span>;</div><div class="line"><span class="keyword">var</span> matches = pattern.exec(text);</div><div class="line">alert(matches.index); <span class="comment">//0</span></div><div class="line">alert(matches[<span class="number">0</span>]); <span class="comment">//cat</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><code>test()</code>方法<br>返回<strong>布尔类型</strong>，判断是否存在匹配</p>
+</li>
+<li>构造函数属性<br>直接用<code>RegExp.property</code>调用，每个属性都有长属性明与对应的短属性名</li>
+</ul>
+<h3 id="Function类型"><a href="#Function类型" class="headerlink" title="Function类型"></a><code>Function</code>类型</h3><ul>
+<li><p>函数名本质上是指向函数对象的指针，不会与函数绑定</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//函数声明方式定义函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num1.num2</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> num1+num2;</div><div class="line">&#125;</div><div class="line"><span class="comment">//函数表达式方式定义函数</span></div><div class="line"><span class="keyword">var</span> sum = <span class="function"><span class="keyword">function</span>(<span class="params">num1,num2</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> num1+num2;</div><div class="line">&#125;</div><div class="line"><span class="comment">//以上两种方式几乎无差别</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>没有重载</strong>，函数也是一种类型，先后声明同名函数只会<strong>覆盖</strong>原函数</p>
+</li>
+<li><p>函数声明会在代码开始执行前被<strong>提升</strong>，并添加到执行环境中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">alert(sum(<span class="number">10</span>,<span class="number">10</span>)); <span class="comment">//可以运行</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num1,num2</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> num1+num2;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>当函数位于一个初始化语句中，而不是一个函数声明中时，只会提升变量的初始化，函数未被声明</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">alert(sum(<span class="number">10</span>,<span class="number">10</span>)); <span class="comment">//可以运行</span></div><div class="line"><span class="keyword">var</span> sum = <span class="function"><span class="keyword">function</span>(<span class="params">num1,num2</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> num1+num2;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>函数可以作为参数来传递和返回，也可以嵌套</p>
+</li>
+<li><p>函数内部的属性<code>callee,caller,this</code>（前两种在严格模式下不可用）<br><code>callee</code>指向拥有<code>arguments</code>的函数，是<strong>arguments的属性</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">factorial</span>(<span class="params">num</span>)</span>&#123;</div><div class="line">  <span class="keyword">if</span> (num&lt;=<span class="number">1</span>)&#123;</div><div class="line">   <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">  &#125;<span class="keyword">else</span>&#123;</div><div class="line">    <span class="keyword">return</span> num * <span class="built_in">arguments</span>.callee(num<span class="number">-1</span>); <span class="comment">//消除了阶乘函数对函数名的依赖</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>caller</code>指向调用当前函数的函数，是<strong>函数的属性</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  inner();</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">inner</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  alert(inner.caller);</div><div class="line">&#125;</div><div class="line"></div><div class="line">outer(); <span class="comment">//显示outer的源代码</span></div></pre></td></tr></table></figure>
+<p><code>this</code>指向函数运行时的环境对象，浏览器内全局时则指向<code>window</code></p>
+</li>
+<li>函数的<code>length</code>与<code>prototype</code><br><code>length</code>指希望接受的命名参数个数，<code>prototype</code>保存了实例方法的真正所在</li>
+<li><p><code>call()</code>与<code>apply()</code><br>用于设置函数体内的<code>this</code>对象的值，区别在于<code>call</code>要逐个列举参数，<code>apply</code>接收参数组成的数组或<code>arguments</code>实例</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num1,num2</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> num1+num2;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">callSum</span>(<span class="params">num1,num2</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> sum.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>); </div><div class="line">  <span class="comment">//或</span></div><div class="line">  <span class="keyword">return</span> sum.apply(<span class="keyword">this</span>, [num1,num2]);</div><div class="line">  <span class="comment">//或</span></div><div class="line">  <span class="keyword">return</span> sum.call(<span class="keyword">this</span>,num1,num2);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>bind()</code>方法<br>建立一个函数实例，其<code>this</code>值被绑定到传给<code>bind()</code>函数的值</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.color = <span class="string">'red'</span>;</div><div class="line"><span class="keyword">var</span> o = &#123;<span class="attr">color</span>:<span class="string">'blue'</span>&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayColor</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  alert(<span class="keyword">this</span>.color);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> objectSayColor = sayColor.bind(o);</div><div class="line">objectSayColor(); <span class="comment">//blue</span></div></pre></td></tr></table></figure>
+<h3 id="基本包装类型"><a href="#基本包装类型" class="headerlink" title="基本包装类型"></a>基本包装类型</h3><h4 id="三个基本包装类型，Boolean，Number，String"><a href="#三个基本包装类型，Boolean，Number，String" class="headerlink" title="三个基本包装类型，Boolean，Number，String"></a>三个基本包装类型，<code>Boolean</code>，<code>Number</code>，<code>String</code></h4><p>存在的意义是弥补基本类型没有方法，可用基本类型直接调用，其后台有一系列自动化的处理<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s1 = <span class="string">'some'</span>;</div><div class="line"><span class="keyword">var</span> s2 = s1.substring(<span class="number">2</span>);</div></pre></td></tr></table></figure></p>
+<p>在第二行代码访问<code>s1</code>时，访问过程处于一种读取模式，此时后台的处理如下</p>
+<ol>
+<li>创建<code>String</code>类型的一个实例</li>
+<li>在实例上调用指定方法</li>
+<li>销毁实例  </li>
+</ol>
+<p>可见包装类型生存周期与一般的引用类型的差别，包装类型<strong>只存在于代码执行的瞬间</strong>，因此不能为其添加属性</p>
+<ul>
+<li><code>Boolean</code>类型<br>不建议使用</li>
+<li><code>Number</code>类型<table><br><tr><th>格式化方法名</th><th>作用</th></tr><br><tr><td>toString()</td><td>转换成string，可设置进制</td></tr><br><tr><td>toFixed()</td><td>保留指定小数位数，自动舍入</td></tr><br><tr><td>toExponential()</td><td>科学计数法，可设置保留小数点位数</td></tr><br><tr><td>toPrecision()</td><td>设置所有数字的位数，自动选择转换方式</td></tr><br></table></li>
+<li><code>String</code>类型<table><br><tr><th>方法名</th><th>作用</th></tr><br><tr><td>charAt()</td><td>返回特定位置的单字符</td></tr><br><tr><td>charCodeAt()</td><td>返回特定位置的编码</td></tr><br><tr><td>slice()</td><td>起始位置，结尾后一位置，支持负数</td></tr><br><tr><td>substring()</td><td>起始位置，结尾后一位置，负数置0</td></tr><br><tr><td>substr()</td><td>起始位置，截取长度，长度不支持负数，位置支持负数</td></tr><br><tr><td>indexOf()</td><td>返回字符串索引位置，第二个参数设置起始位置</td></tr><br><tr><td>lastIndexOf()</td><td>反向返回字符串索引位置，第二个参数设置起始位置</td></tr><br><tr><td>trim()</td><td>去掉字符串前后空格，另有trimLeft(),trimRight()</td></tr><br><tr><td>toLowerCase()</td><td>不解释系列</td></tr><br><tr><td>exec()</td><td>模式匹配，string.exec(pattern)，本质上与RegExp的方法相同</td></tr><br><tr><td>search()</td><td>模式匹配，找位置</td></tr><br><tr><td>replace()</td><td>玩法多样，支持正则，由第二个参数代替第一个参数</td></tr><br><tr><td>split()</td><td>分割字符串为array，支持正则</td></tr><br><tr><td>localeCompare()</td><td>比较字符串，返回-1,0,1</td></tr><br><tr><td>fromCharCode()</td><td>与charCodeAt相反</td></tr><br></table>
+
+</li>
+</ul>
+<h3 id="Global对象"><a href="#Global对象" class="headerlink" title="Global对象"></a><code>Global</code>对象</h3><p>一切对象的源头，全局对象的归属，如<code>isNaN(),inFinite(),parseInt()</code>  </p>
+<ul>
+<li>URI编码方法<code>encodeURI</code>与<code>encodeURIComponent()</code>，发送给浏览器以其可以理解的编码<br>前者用于将整个URI进行编码，后者用于编码部分URI，后者将原本属于URI的特殊字符一并处理，更常用</li>
+<li>对应存在<code>decodeURI()</code>与<code>decodeURIComponent()</code></li>
+<li><code>eval()</code>方法，执行内部字符串，且带入其运行环境，严格模式下不支持这一点</li>
+<li><code>Global</code>对象是<code>window</code>对象的一部分</li>
+</ul>
+<h3 id="Math对象"><a href="#Math对象" class="headerlink" title="Math对象"></a><code>Math</code>对象</h3><ul>
+<li><p><code>min()</code>和<code>max()</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> max = <span class="built_in">Math</span>.max(<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>); <span class="comment">//5</span></div><div class="line"></div><div class="line"><span class="comment">//特殊技巧，用max对array进行操作，利用apply可接受参数数组的特性</span></div><div class="line"><span class="keyword">var</span> values = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</div><div class="line"><span class="keyword">var</span> max = <span class="built_in">Math</span>.max.apply(<span class="built_in">Math</span>,values);</div></pre></td></tr></table></figure>
+</li>
+<li><p>舍入方法ceil(),floor(),round()</p>
+</li>
+<li>random()方法及通用格式<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*choices+minValue);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>其他方法不再列举</p>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2015/08/05/2015-08-05-js-c6/" data-toggle="tooltip" data-placement="top" title="JS Part 6">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2015/08/03/2015-08-03-js-c4/" data-toggle="tooltip" data-placement="top" title="JS Part 4">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#javascript" title="javascript">javascript</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "hexo-theme-huxblog";
+    var disqus_identifier = "https://naixy28.github.io/2015/08/04/2015-08-04-js-c5/";
+    var disqus_url = "https://naixy28.github.io/2015/08/04/2015-08-04-js-c5/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/yuan-yang-ryan">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/naixy28">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/ryan-yuan-68813a103">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Naixy28&#39;s Blog 2017 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://naixy28.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="https://naixy28.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          Cheat Sheets - Naixy28的博客 | Naixy28&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="https://naixy28.github.io/2017/02/22/2017-02-22-Cheat-Sheet/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Naixy28&#39;s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="https://naixy28.github.io/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#javascript" title="javascript">javascript</a>
+                        
+                          <a class="tag" href="/tags/#css" title="css">css</a>
+                        
+                    </div>
+                    <h1>Cheat Sheets</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by naixy28 on
+                        2017-02-22
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h1 id="Cheat-Sheets"><a href="#Cheat-Sheets" class="headerlink" title="Cheat Sheets"></a>Cheat Sheets</h1><h2 id="CSS-Blend-Mode"><a href="#CSS-Blend-Mode" class="headerlink" title="CSS Blend Mode"></a>CSS Blend Mode</h2><p><img src="/assets/img/blendmode-19.jpg" alt="blend mode"></p>
+<h2 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h2><p><img src="/assets/img/redux.jpg" alt="redux"></p>
+<h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><p><img src="/assets/img/react-lifecycle.png" alt="react"></p>
+<h2 id="SASS"><a href="#SASS" class="headerlink" title="SASS"></a>SASS</h2><blockquote>
+<p><a href="https://gist.github.com/hofmannsven/b219051467f86f2ac469" target="_blank" rel="external">引用自这里</a></p>
+</blockquote>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// SCSS comments (not visible in CSS)</span></div><div class="line"><span class="comment">/* CSS comments (visible in CSS) */</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// Variables</span></div><div class="line"><span class="variable">$color</span>: black;</div><div class="line"></div><div class="line"><span class="selector-tag">p</span> &#123;</div><div class="line">  <span class="attribute">color</span>: <span class="variable">$color</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// Nesting &amp; Abbreviation</span></div><div class="line"><span class="selector-tag">aside</span> &#123;</div><div class="line">  <span class="attribute">border</span>: &#123;</div><div class="line">    width: <span class="number">1px</span>;</div><div class="line">    <span class="selector-tag">style</span>: solid;</div><div class="line">    <span class="attribute">color</span>: <span class="variable">$color</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">nav</span> &#123;</div><div class="line">  <span class="attribute">background</span>: none;</div><div class="line">  <span class="selector-tag">ul</span> &#123;</div><div class="line">    <span class="attribute">list-style-type</span>: none;</div><div class="line">    <span class="selector-tag">a</span> &#123;</div><div class="line">      <span class="attribute">color</span>: <span class="variable">$color</span>;</div><div class="line">      &amp;:hover, &amp;:focus, &amp;:active &#123; <span class="comment">// Skip default space: `a:hover` instead of `a :hover`</span></div><div class="line">        <span class="attribute">color</span>: red;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="selector-tag">body</span><span class="selector-class">.blog</span> &amp; &#123; <span class="comment">// Skip default nesting: `body.blog nav` instead of `nav body.blog`</span></div><div class="line">    <span class="attribute">background</span>: green;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// Extend/Inheritance</span></div><div class="line"><span class="selector-class">.infobox</span> &#123;</div><div class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">10px</span>;</div><div class="line">  <span class="attribute">color</span>: <span class="variable">$color</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.success</span> &#123;</div><div class="line">  @<span class="keyword">extend</span> .infobox;</div><div class="line">  <span class="attribute">border-color</span>: green;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// The % prefix creates rules that never get used on their own.</span></div><div class="line"><span class="comment">// Theses classes are solely for the purpose of extending.</span></div><div class="line">%info &#123;</div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.notice</span> &#123;</div><div class="line">  @<span class="keyword">extend</span> %info;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// Mixins</span></div><div class="line">@<span class="keyword">mixin</span> outline &#123;</div><div class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid black;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">mixin</span> animate( <span class="variable">$property</span>, <span class="variable">$duration</span>, <span class="variable">$easing</span> ) &#123;</div><div class="line">  <span class="attribute">transition</span>: <span class="variable">$property</span> <span class="variable">$duration</span> <span class="variable">$easing</span>;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">mixin</span> default_animate( <span class="variable">$property</span>: all, <span class="variable">$duration</span>: 1s, <span class="variable">$easing</span>: ease ) &#123; <span class="comment">// Mixin with defaults</span></div><div class="line">  <span class="attribute">transition</span>: <span class="variable">$property</span> <span class="variable">$duration</span> <span class="variable">$easing</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">aside</span> &#123;</div><div class="line">  <span class="attribute">border-radius</span>: <span class="number">10px</span>;</div><div class="line">  @<span class="keyword">include</span> outline;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">a</span> &#123;</div><div class="line">  @<span class="keyword">include</span> animate( all, 1s, linear );</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">nav</span> <span class="selector-tag">a</span> &#123;</div><div class="line">  @<span class="keyword">include</span> default_animate( <span class="variable">$duration</span>: 3s ); <span class="comment">// Use defaults with custom $duration</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// Operators: +, -, *, /, and %</span></div><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">600px</span> / <span class="number">960px</span> * <span class="number">100%</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// Functions</span></div><div class="line"><span class="variable">$highlight</span>: green;</div><div class="line"></div><div class="line"><span class="selector-tag">p</span> &#123;</div><div class="line">  <span class="attribute">color</span>: lighten( <span class="variable">$highlight</span>, <span class="number">20%</span> );</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">p</span> &#123;</div><div class="line">  <span class="attribute">color</span>: darken( <span class="variable">$highlight</span>, <span class="number">10%</span> );</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">p</span> &#123;</div><div class="line">  <span class="attribute">color</span>: fade-out( <span class="variable">$highlight</span>, <span class="number">0.5</span> );</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">p</span> &#123;</div><div class="line">  <span class="attribute">color</span>: adjust-hue( <span class="variable">$highlight</span>, <span class="number">90</span> ); <span class="comment">// Usually between -360 degrees and 360 degrees.</span></div><div class="line">&#125;</div><div class="line"><span class="selector-tag">p</span> &#123;</div><div class="line">  <span class="attribute">color</span>: red + blue; <span class="comment">// Compiles to magenta.</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// Loops</span></div><div class="line"><span class="variable">$list</span>: (orange, purple, teal);</div><div class="line">@<span class="keyword">each</span> <span class="variable">$item</span> in <span class="variable">$list</span> &#123;</div><div class="line">  .#&#123;<span class="variable">$item</span>&#125; &#123;</div><div class="line">    <span class="attribute">background</span>: <span class="variable">$item</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="variable">$total</span>: <span class="number">10</span>;</div><div class="line"><span class="variable">$step</span>: <span class="number">360deg</span> / <span class="variable">$total</span>;</div><div class="line">@<span class="keyword">for</span> <span class="variable">$i</span> from 1 through <span class="variable">$total</span> &#123;</div><div class="line">   <span class="selector-class">.ray</span>:nth-child(#&#123;<span class="variable">$i</span>&#125;)&#123;</div><div class="line">      <span class="attribute">background</span>: adjust-hue( blue, <span class="variable">$i</span> * <span class="variable">$step</span> );</div><div class="line">   &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// If/Else</span></div><div class="line"><span class="selector-tag">p</span> &#123;</div><div class="line">  <span class="attribute">margin-left</span>: if( <span class="variable">$i</span> % <span class="number">2</span> == <span class="number">0</span>, <span class="number">0px</span>, <span class="number">50px</span> );</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// Import/Embed (.scss files only)</span></div><div class="line">@<span class="keyword">import</span> <span class="string">'normalize'</span> // Prevent separate compiling with a leading underscore: `_normalize.scss`</div></pre></td></tr></table></figure>
+<h2 id="Emmet"><a href="#Emmet" class="headerlink" title="Emmet"></a>Emmet</h2><p><img src="/assets/img/emmet-api.jpg" alt="emmet"></p>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2017/02/22/2017-02-22-Code-Fragments/" data-toggle="tooltip" data-placement="top" title="Code Fragments">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/02/01/2017-02-01-es6-02/" data-toggle="tooltip" data-placement="top" title="ES6 Part 2">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#javascript" title="javascript">javascript</a>
+                        
+                          <a class="tag" href="/tags/#css" title="css">css</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "hexo-theme-huxblog";
+    var disqus_identifier = "https://naixy28.github.io/2017/02/22/2017-02-22-Cheat-Sheet/";
+    var disqus_url = "https://naixy28.github.io/2017/02/22/2017-02-22-Cheat-Sheet/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/yuan-yang-ryan">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/naixy28">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/ryan-yuan-68813a103">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Naixy28&#39;s Blog 2017 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://naixy28.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="https://naixy28.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

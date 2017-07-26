@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          JS Part 10 - Naixy28的博客 | Naixy28&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="https://naixy28.github.io/2015/08/09/2015-08-09-js-c10/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Naixy28&#39;s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="https://naixy28.github.io/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#javascript" title="javascript">javascript</a>
+                        
+                    </div>
+                    <h1>JS Part 10</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by naixy28 on
+                        2015-08-09
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h1 id="javascript高级语言程序设计笔记"><a href="#javascript高级语言程序设计笔记" class="headerlink" title="javascript高级语言程序设计笔记"></a>javascript高级语言程序设计笔记</h1><h2 id="第10章"><a href="#第10章" class="headerlink" title="第10章"></a>第10章</h2><hr>
+<p>在HTML中，一个文档只有一个文档元素<code>&lt;html&gt;</code>，每一段标记都可以通过树中的一个节点来表示，共有12种节点类型，都继承自一个基类</p>
+<h3 id="Node类型"><a href="#Node类型" class="headerlink" title="Node类型"></a><code>Node</code>类型</h3><ul>
+<li>DOM1级定义了<code>node</code>接口，所有节点类型都继承自<code>node</code>类型</li>
+<li>每个节点都有<code>nodeType</code>属性，十二种属性对应1-12，不是所有浏览器都支持属性的名称但都支持数字</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(someNode.nodeType == Node.ELEMENT_NODE)&#123;</div><div class="line">	<span class="comment">//是element node</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">if</span>(someNode.nodeType == <span class="number">1</span>)&#123;</div><div class="line">	<span class="comment">//与上等价</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><code>nodeName</code>和<code>nodeValue</code>属性，对于<code>element node</code>，<code>nodeName</code>记录了标签名，<code>nodeValue</code>为<code>null</code></li>
+</ul>
+<h4 id="节点关系"><a href="#节点关系" class="headerlink" title="节点关系"></a>节点关系</h4><ul>
+<li>众所周知的parent与children的关系，<code>childNodes</code>属性返回一个<code>NodeList</code>对象，并不是Array的实例，其内容是根据DOM结构变化而动态变化的</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//一些基本的操作，前两者功能相同</span></div><div class="line"><span class="keyword">var</span> friendChild = someNode.childNodes[<span class="number">0</span>];</div><div class="line"><span class="keyword">var</span> secondChild = someNode.childNodes.item(<span class="number">1</span>);</div><div class="line"><span class="keyword">var</span> count = someNode.childNodes.length;</div><div class="line"></div><div class="line"><span class="comment">//将NodeList转为Array的方法，即将类数组对象转Array的通用方法</span></div><div class="line"><span class="keyword">var</span> arrayOfNodes = <span class="built_in">Array</span>.prototype.slice.call(someNode.childNodes,<span class="number">0</span>);</div></pre></td></tr></table></figure>
+<ul>
+<li>其他的属性如：<code>parentNode firstChild lastChild nextSibling previousSibling</code></li>
+<li>一些方法和属性：<code>hasChildNodes()</code>用于判断是否有子节点，<code>ownerDocument</code>是所有节点的最后一个属性，直接指向文档节点</li>
+</ul>
+<h4 id="操作节点"><a href="#操作节点" class="headerlink" title="操作节点"></a>操作节点</h4><ul>
+<li>列举一些方法，都懂的</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//appendChild()，在尾部添加节点</span></div><div class="line"><span class="keyword">var</span> returnedNode = someNode.appendChild(newNode);</div><div class="line">alert(returnedNode == newNode); <span class="comment">//true</span></div><div class="line">alert(someNode.lastChild == newNode); <span class="comment">//true</span></div><div class="line"><span class="comment">//还可以用于移动节点位置</span></div><div class="line">someNode.appendChild(someNode.firstChild); <span class="comment">//将第一个子节点移动到最后</span></div><div class="line"></div><div class="line"><span class="comment">//insertBefore()</span></div><div class="line">returnedNode = someNode.insertBefore(newNode,<span class="literal">null</span>); <span class="comment">//插入到最后</span></div><div class="line">returnedNode = someNode.insertBefore(newNode,someNode.firstChild); <span class="comment">//插入到最前面</span></div><div class="line"></div><div class="line"><span class="comment">//替换节点replaceChild()</span></div><div class="line"><span class="keyword">var</span> returnedNode = someNode.repalceChild(newNode,someNode.firstChild);</div><div class="line"></div><div class="line"><span class="comment">//移除节点removeChild()</span></div><div class="line"><span class="keyword">var</span> formerFirstChild = someNode.removeChild(someNode.fitstChild);</div><div class="line"></div><div class="line"><span class="comment">//复制节点cloneNode()</span></div><div class="line"><span class="keyword">var</span> deepList = myList.cloneNode(<span class="literal">true</span>); <span class="comment">//深复制，复制整个子树</span></div><div class="line"><span class="keyword">var</span> shallowList = myList.cloneNode(<span class="literal">false</span>); <span class="comment">//浅复制，只复制自己</span></div><div class="line"></div><div class="line"><span class="comment">//normalize() 合并子树中的空文本节点</span></div></pre></td></tr></table></figure>
+<h3 id="Document类型"><a href="#Document类型" class="headerlink" title="Document类型"></a><code>Document</code>类型</h3><ul>
+<li>document对象是<code>HTMLDocument</code>的一个实例（继承自Document类型），表示整个html页面，是window对象的唯一属性，nodeType为9，nodeName为<code>#document</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//一些属性方法</span></div><div class="line"><span class="built_in">document</span>.documentElement; <span class="comment">//&lt;html&gt;的引用</span></div><div class="line"><span class="built_in">document</span>.body;</div><div class="line"><span class="built_in">document</span>.doctype;</div><div class="line"></div><div class="line"><span class="built_in">document</span>.title; <span class="comment">//标题</span></div><div class="line"></div><div class="line"><span class="comment">//网页请求相关</span></div><div class="line"><span class="built_in">document</span>.URL; <span class="comment">//返回url</span></div><div class="line"><span class="built_in">document</span>.domain; <span class="comment">//返回域名，能稍作设置</span></div><div class="line"><span class="built_in">document</span>.referrer; <span class="comment">//返回可能存在的之前的页面地址</span></div><div class="line"></div><div class="line"><span class="comment">//查找元素的方法</span></div><div class="line"><span class="built_in">document</span>.getElementById();</div><div class="line"><span class="built_in">document</span>.getElementsByTagName();</div><div class="line"><span class="built_in">document</span>.getElementsByName();</div><div class="line"></div><div class="line"><span class="comment">//特殊集合</span></div><div class="line"><span class="built_in">document</span>.anchors; <span class="comment">//&lt;a&gt;的集合</span></div><div class="line"><span class="built_in">document</span>.applets; <span class="comment">//&lt;applet&gt;的集合</span></div><div class="line"><span class="built_in">document</span>.forms; <span class="comment">//&lt;form&gt;的集合</span></div><div class="line"><span class="built_in">document</span>.images; <span class="comment">//&lt;img&gt;的集合</span></div><div class="line"><span class="built_in">document</span>.links; <span class="comment">//&lt;a href='...'&gt;的集合</span></div><div class="line"></div><div class="line"><span class="comment">//一致性检测，很多特性</span></div><div class="line"><span class="built_in">document</span>.implenmentation.hasFeature(<span class="string">'XML'</span>,<span class="string">'1.0'</span>);</div><div class="line"></div><div class="line"><span class="comment">//文档写入</span></div><div class="line"><span class="built_in">document</span>.write(); <span class="comment">//文档加载时使用没问题，加载完使用会使文档重写</span></div><div class="line"><span class="built_in">document</span>.writeln();</div><div class="line"><span class="built_in">document</span>.open(); <span class="comment">//用于在文档加载完打开关闭网页输出流</span></div><div class="line"><span class="built_in">document</span>.close();</div></pre></td></tr></table></figure>
+<h3 id="Element类型"><a href="#Element类型" class="headerlink" title="Element类型"></a><code>Element</code>类型</h3><ul>
+<li>最常用的类型<ul>
+<li>nodeType为1</li>
+<li>nodeName为标签名</li>
+<li>nodeValue为null</li>
+<li>parentNode可能是Document或Element</li>
+<li>子节点可能是各种</li>
+</ul>
+</li>
+<li>使用<code>tagNeme</code>测试的时候注意都是大写，使用toLowerCase()</li>
+<li>HTML元素，由<code>HTMLElemrnt</code>类型或其子类型表示，有标准属性：<code>id title lang dir className</code></li>
+<li><code>HTMLElemrnt</code>类型或其子类型表示，有标准属性：子类型，也就是正常用的标签</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//操作特性的方法</span></div><div class="line">div.getAttribute(<span class="string">'id'</span>); <span class="comment">//对任何属性可用</span></div><div class="line">div.id; <span class="comment">//非自定义的属性可以这样调用</span></div><div class="line"></div><div class="line">div.setAttribute(<span class="string">'id'</span>,<span class="string">'something'</span>);</div><div class="line">div.id = <span class="string">'something'</span>;</div><div class="line"></div><div class="line">div.removeAttribute(<span class="string">'class'</span>);</div><div class="line"></div><div class="line"><span class="comment">//创建元素</span></div><div class="line"><span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</div></pre></td></tr></table></figure>
+<ul>
+<li>元素的子节点</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">//对于下面代码</div><div class="line">&lt;ul id ='myList'&gt;</div><div class="line">	&lt;li&gt;item&lt;/li&gt;</div><div class="line">	&lt;li&gt;item&lt;/li&gt;</div><div class="line">	&lt;li&gt;item&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line"></div><div class="line">//对ie来说，childNodes有三个，对其他浏览器，有7个元素，其中有4个空白的文本节点表示文件之间的空白符</div><div class="line"></div><div class="line">//判断节点类型，不操作文本节点</div><div class="line">for(var i =0 , len = element.childNodes.length ; i&lt; len; i++)&#123;</div><div class="line">	if(element.childNodes[i].nodeType == 1)&#123;</div><div class="line">		//执行某操作</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//还可以</div><div class="line">ul.getElementsByTagName('li'); //返回的可能不只是直接子元素</div></pre></td></tr></table></figure>
+<h3 id="Text类型"><a href="#Text类型" class="headerlink" title="Text类型"></a><code>Text</code>类型</h3><ul>
+<li>nodeType为3，nodeName为<code>#text</code>，nodeValue为所含文本，parentNode是一个<code>Element</code>，无子节点</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> element = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</div><div class="line">element.className = <span class="string">'message'</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> textNode = <span class="built_in">document</span>.createTextNode(<span class="string">'Hello world'</span>);</div><div class="line">element.appendChild(textNode);</div><div class="line"></div><div class="line"><span class="keyword">var</span> anotherTextNode = <span class="built_in">document</span>.createTextNode(<span class="string">'xxx'</span>);</div><div class="line">element.appendChild(anotherTextNode);</div><div class="line"></div><div class="line"><span class="built_in">document</span>.body.appendChild(element);</div></pre></td></tr></table></figure>
+<ul>
+<li>常用技术，分割文本节点</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> textNode = <span class="built_in">document</span>.createTextNode(<span class="string">'Hello world!'</span>);</div><div class="line">element.appendChild(textNode);</div><div class="line"></div><div class="line"><span class="built_in">document</span>.body.appendChild(element);</div><div class="line"></div><div class="line"><span class="keyword">var</span> newNode = element.firstChild.splitText(<span class="number">5</span>);</div><div class="line">alert(element.firstChild.nodeValue); <span class="comment">//Hello</span></div><div class="line">alert(newNode.nodeValue); <span class="comment">// world!</span></div><div class="line">alert(element.childNodes.length)(<span class="number">2</span>);</div></pre></td></tr></table></figure>
+<h3 id="Comment类型"><a href="#Comment类型" class="headerlink" title="Comment类型"></a><code>Comment</code>类型</h3><ul>
+<li>nodeType 8</li>
+<li>并没什么用</li>
+</ul>
+<h3 id="CDATASection类型"><a href="#CDATASection类型" class="headerlink" title="CDATASection类型"></a><code>CDATASection</code>类型</h3><ul>
+<li>nodeType 4</li>
+<li>并没什么用</li>
+</ul>
+<h3 id="DocumentType类型"><a href="#DocumentType类型" class="headerlink" title="DocumentType类型"></a><code>DocumentType</code>类型</h3><ul>
+<li>nodeType 0</li>
+<li>并没什么用</li>
+</ul>
+<h3 id="DocumentFragment类型"><a href="#DocumentFragment类型" class="headerlink" title="DocumentFragment类型"></a><code>DocumentFragment</code>类型</h3><ul>
+<li>nodeType 11</li>
+<li>可作为仓库使用，用于保存可能有用的节点<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fragment = <span class="built_in">document</span>.createDocumentFragment();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Attr类型"><a href="#Attr类型" class="headerlink" title="Attr类型"></a><code>Attr</code>类型</h3><ul>
+<li>nodeType 11 ?</li>
+<li>常用的是<code>getAttribute() setAttribute() removeAttribute()</code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//不常用</span></div><div class="line"><span class="keyword">var</span> attr = <span class="built_in">document</span>.createAttribute(<span class="string">'align'</span>);</div><div class="line">attr.value = <span class="string">'left'</span>;</div><div class="line">elememt.setAttributeNode(attr);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="DOM操作"><a href="#DOM操作" class="headerlink" title="DOM操作"></a>DOM操作</h3><ul>
+<li>动态加载脚本：即在页面加载完成后添加到页面中的脚本。兼容性问题比较大，用jQ吧</li>
+<li>动态样式：类似动态加载脚本</li>
+</ul>
+<h3 id="操作表格"><a href="#操作表格" class="headerlink" title="操作表格"></a>操作表格</h3><ul>
+<li>相对于传统的dom操作，为表格操作增加了一些简便方法</li>
+</ul>
+<h3 id="NodeList"><a href="#NodeList" class="headerlink" title="NodeList"></a>NodeList</h3><ul>
+<li>NodeList,NamedNodeMap,HTMLCollection三者都是动态更新的，始终保持最新的信息</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> divs = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>),</div><div class="line">	i,</div><div class="line">	div;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (i =<span class="number">0</span>; i&lt;divs.length;i++)&#123;</div><div class="line">	div = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</div><div class="line">	<span class="built_in">document</span>.body.appendChild(div);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//以上代码由于NodeList的动态性，会无限循环</span></div></pre></td></tr></table></figure>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2016/08/01/2016-08-01-CORS/" data-toggle="tooltip" data-placement="top" title="CORS">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2015/08/08/2015-08-08-js-c9/" data-toggle="tooltip" data-placement="top" title="JS Part 9">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#javascript" title="javascript">javascript</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "hexo-theme-huxblog";
+    var disqus_identifier = "https://naixy28.github.io/2015/08/09/2015-08-09-js-c10/";
+    var disqus_url = "https://naixy28.github.io/2015/08/09/2015-08-09-js-c10/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/yuan-yang-ryan">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/naixy28">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/ryan-yuan-68813a103">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Naixy28&#39;s Blog 2017 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://naixy28.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="https://naixy28.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
