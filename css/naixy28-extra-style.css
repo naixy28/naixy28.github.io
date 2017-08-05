@@ -1,0 +1,107 @@
+/* 
+    Style added then    
+*/
+.navbar-custom .nav li a {}
+
+.ptl-main {
+    width: 90%;
+    margin: 0 auto;
+
+    --color-border: #dedede;
+    --color-btn: #aaa;
+    --color-btn-border: #ccc;
+    --color-btn-bg: #eee;
+}
+
+.ptl-ul {
+    margin: 0 auto;
+    max-width: 600px;
+    list-style: none;
+    padding: 0;
+    margin-top: -150px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.ptl-ul li {
+    flex: 1;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+} 
+
+.ptl-card {
+    margin-bottom: 2em;
+    border: 1px solid var(--color-border);
+    position: relative;
+    font-size: 15px;
+}
+
+.ptl-card h2 {
+    margin: 0;
+    font-size: 1em; 
+    padding: 14px 20px;
+    line-height: 2;
+}
+.ptl-card time {
+    position: absolute;
+    margin: 0;
+    padding: 14px 20px;
+    right: 0;
+    top: 0;
+    font-size: 1em;
+    line-height: 2;
+    opacity: .5;
+}
+
+.ptl-card img {
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.ptl-card ul {
+    padding: 0;
+    margin: 0 2em;
+}
+
+.ptl-desc {
+    font-size: .93em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.ptl-skill {
+    padding: 1em 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.ptl-icons {
+    flex: 1;
+}
+
+.ptl-skill a{
+    border: 1px solid var(--color-btn-border);
+    border-radius: .2em;
+    padding: 0 1em;
+    color: var(--color-btn);
+    transition: background .1s linear;
+}
+
+.ptl-skill a:hover{
+    text-decoration: none;
+    background: var(--color-btn-bg);
+}
+
+.i-text {
+    display: inline-block;
+    margin-right: 10px;
+    height: 2em;
+}
+
+.i-text b{
+    color: var(--color-btn);
+    font-size: 1.2em;
+    
+}
