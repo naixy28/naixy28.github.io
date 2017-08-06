@@ -24,7 +24,7 @@
 }
 
 .ptl-ul li {
-    flex: 1;
+    flex: 1 1 100%;
     background: #fff;
     position: relative;
     overflow: hidden;
@@ -89,6 +89,8 @@
     transition: background .1s linear;
 }
 
+.ptl-skill a:focus,
+.ptl-skill a:active,
 .ptl-skill a:hover{
     text-decoration: none;
     background: var(--color-btn-bg);
@@ -104,4 +106,24 @@
     color: var(--color-btn);
     font-size: 1.2em;
     
+}
+
+.i-react {
+    display: inline-block;
+    margin-right: 10px;
+    height: 2em;
+    position: relative;
+    vertical-align: bottom;
+}
+
+.i-react::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2em;
+    width: 2em;
+    background: url('/img/logo-react.png');
+    background-size: 100%;
 }
